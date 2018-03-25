@@ -18,15 +18,23 @@ const defaultPlugins = [
         }
     }),
 
-    new HTMLPlugin(),
+    new HTMLPlugin({
+        template: path.join(__dirname,'../client/index.html'),
+        inject: true,
+    }),
 
     new VueClientPlugin(),
 ]
 
 // 开发环境服务器
 const devServer = {
+    publicPath: '/public/',
     port: 8000,
+    compress: true,
     host: '0.0.0.0',
+    historyApiFallback: {
+        index: '/public/index.html'
+    },
     overlay: {
         errors: true,
     },
@@ -65,17 +73,18 @@ if (isDev) {
         ])
     })
 
-    
+
 } else {
     // 正式环境配置
     config = merge(baseConfig, {
         entry: {
-            app: path.join(__dirname, '../client/index.js'),
+            app: path.join(__dirname, '../client/client-entry.js'),
             vendor: ['vue']
         },
 
         output: {
-            filename: '[name].[chunkhash:8].js'
+            filename: '[name].[chunkhash:8].js',
+            publicPath: '/public/'
         },
 
         module: {

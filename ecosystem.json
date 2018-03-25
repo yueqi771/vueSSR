@@ -1,0 +1,22 @@
+{
+    "apps": [
+        {
+            "name": "yueqi",
+            "scripts": "./server/server.js",
+            "env_production": {
+                "NODE_ENV": "production",
+                "HOST": "localhost"
+            }
+        }
+    ],
+    "deploy": {
+        "production": {
+            "user": "root",
+            "host": "asdf",
+            "repo": "https://github.com/yueqi771/vueSSR.git",
+            "ref": "origin/master",
+            "path": "",
+            "post-deploy": "npm install && npm run deploy && pm2 startOrRestart ecosystem.json --env production"
+        }
+    }
+}

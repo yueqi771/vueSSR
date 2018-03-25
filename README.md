@@ -1,9 +1,9 @@
 # About
-这是慕课网上[Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)课程的源码
+一个使用nodeJs做中间键搭建的服务端渲染项目
 
 # 使用方法
 ```
-git clone https://github.com/Jokcy/vue-todo-tech.git
+
 ```
 进入项目目录，运行
 ```

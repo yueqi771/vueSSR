@@ -1,6 +1,6 @@
 <template>
   <div :class="['todo-item', todo.completed ? 'completed' : '']">
-    <input 
+    <input
       type="checkbox"
       class="toggle"
       v-model="todo.completed"
@@ -29,7 +29,6 @@ export default {
 <style lang="stylus" scoped>
 .todo-item{
   position relative
-  background-color #fff
   font-size 24px
   border-bottom 1px solid rgba(0,0,0,0.06)
   &:hover{

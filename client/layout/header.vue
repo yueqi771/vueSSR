@@ -1,20 +1,26 @@
 <template>
-  <header :class="$style.mainHeader">
-    <h1>JTodo</h1>
+  <header class="main-header">
+    <h1>Yueqi</h1>
   </header>
 </template>
 
-<style lang="stylus" module>
+<style >
 
   .main-header{
-      text-align center
-      h1{
-          font-size 100px
-          color: rgba(175, 47, 47, 0.4)
-          font-weight 100
-          margin 20px
-      }
+      width: 100%;
+      height: 60px;
+      background: #4ba8c9;
+
   }
+
+  h1{
+        width: 100%;
+        font-size: 30px;
+        color: #fff;
+        font-weight: 100;
+        text-align: center;
+        line-height: 60px;
+      }
 
 </style>
 

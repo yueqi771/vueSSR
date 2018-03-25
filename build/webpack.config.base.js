@@ -5,11 +5,11 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
     target: 'web',
-    entry: path.join(__dirname, '../client/index.js'),
+    entry: path.join(__dirname, '../client/client-entry.js'),
     output: {
         filename: 'bundle.[hash:8].js',
-        path: path.join(__dirname, '../dist'),
-        publicPath: '/'
+        path: path.join(__dirname, '../public'),
+        publicPath: 'http://127.0.0.1:8000/public/'
     },
     module: {
         rules: [
@@ -28,6 +28,10 @@ const config = {
                 exclude: /node_modules/
             },
             {
+                test: /\.css$/,
+                loaders: ['style-loader', 'css-loader']
+            },
+            {
                 test: /\.(gif|jpg|jpeg|png|svg)$/,
                 use: [
                     {
@@ -38,6 +42,13 @@ const config = {
                     }
                     }
                 ]
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                }
             }
         ]
     },

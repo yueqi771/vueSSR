@@ -17,15 +17,14 @@ let config;
 config = merge(baseConfig, {
     target: 'node', // 必须指定打包的目标为node层
     entry: path.join(__dirname, '../client/server-entry.js'),
-
-    // 开发环境调试代码
-    devtool: 'source-map', 
-
     output: {
         libraryTarget: 'commonjs2', // 指定打包出去的类型module.exports
         filename: 'server-entry.js',
         path: path.join(__dirname, '../server-build')
     },
+
+    // 开发环境调试代码
+    devtool: 'source-map', 
 
     // 
     externals: Object.keys(require('../package.json').dependencies),
