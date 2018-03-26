@@ -304,12 +304,16 @@
 					}
 				})
 			}
-		},
+        },
 
-		mounted (){
+        computed: {
+            get_user() {
+                console.log(this.$store.state.user_info)
+                return this.$store.state.user_info;
+            }
+        },
 
 
-		},
 		created (){
 
 		}

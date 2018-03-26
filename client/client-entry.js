@@ -1,8 +1,9 @@
 import createApp from './create-app';
 
 const { app, router, store } = createApp();
-if(window.__INITIAL_STATE__){
-    store.replaceState(window.__INITIAL_STATE__)
+
+if(window.__INITIAL__STATE__){
+    store.replaceState(window.__INITIAL__STATE__)
 }
 router.onReady(() => {
     router.beforeResolve((to, from, next) => {
@@ -14,7 +15,7 @@ router.onReady(() => {
             return diffed || (diffed = (prevMatched[i] !== c))
         })
 
-        if(!active.length) {
+        if(!activated.length) {
             return next();
         }
 
